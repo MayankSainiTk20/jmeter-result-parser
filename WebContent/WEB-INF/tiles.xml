@@ -1,0 +1,22 @@
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+"http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration//EN" "/home/tk20/campustools/code/common/dtd/tiles-config.dtd">
+ -->
+<tiles-definitions>
+  <definition name="tile.success" path="/mainLayout.jsp">
+    <put name="header" value="/header.jsp"/>
+    <put name="body"   value="/true.jsp"/>
+    <put name="footer" value="/footer.jsp" />
+  </definition>
+   <definition name="tile.fail" path="/mainLayout.jsp">
+    <put name="header" value="/header.jsp"/>
+    <put name="body"   value="/false.jsp"/>
+    <put name="footer" value="/footer.jsp" />
+  </definition>
+  <definition name="tile.home" path="/start.jsp">
+    <put name="header" value="/header.jsp"/>
+    <put name="footer" value="/footer.jsp" />
+  </definition>
+</tiles-definitions>

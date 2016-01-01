@@ -1,0 +1,62 @@
+body { background-color: #fdf5e6 }
+a:hover { color: red }
+.title { 
+  margin-left: auto; 
+  margin-right: auto; 
+  border-width: 5px;
+  border-spacing: 2px;
+  border-style: outset;
+}
+.title th { 
+  background-color: #ef8429;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+th { background-color: #ef8429;
+     font-size: 18px;
+     font-family: Arial, Helvetica, sans-serif;
+}
+td { font-size: 18px;
+     font-family: Arial, Helvetica, sans-serif;
+}
+legend {
+  font-weight: bold;
+  color: black;
+  background-color: #eeeeee;
+  border: 1px solid #999999;
+  padding: 3px 2px;
+}
+.ajaxResult { color: #440000;
+              font-weight: bold;
+              font-size: 18px;
+              font-family: Arial, Helvetica, sans-serif;
+}
+h2 { color: #440000;
+	  font-weight: bold;
+	  font-size: 18px;
+	  font-family: Arial, Helvetica, sans-serif;
+}
+.error { background-color: yellow;
+	      color: red;
+	      font-weight: bold;
+	      font-size: 20px;
+	      font-family: Arial, Helvetica, sans-serif;
+	      border-style: inset;
+}
+.styled-button-1 {
+	-webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	-moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+	color:#333;
+	background-color:#FA2;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border:none;
+	font-family:'Helvetica Neue',Arial,sans-serif;
+	font-size:16px;
+	font-weight:700;
+	height:32px;
+	padding:4px 16px;
+	text-shadow:#FE6 0 1px 0
+}

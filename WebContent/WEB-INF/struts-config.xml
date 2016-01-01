@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "/home/tomcat/webapps/campustoolshighered/WEB-INF/struts-config_1_1.dtd">
+ -->
+ 
+
+
+ <struts-config>
+
+<form-beans>
+     <form-bean name="comm" type="com.tk20.jtlresults.FileUploadForm"/>
+</form-beans>
+
+	<global-forwards type="org.apache.struts.action.ActionForward"> 
+		 <forward name="detailed_report" path="/detailed-report.jsp"/>
+  	   	 <forward name="error" path="/error.jsp"/>
+  	 		
+  	</global-forwards>
+
+
+	<action-mappings>
+	 <action path="/start" forward="/start.jsp" input="/index.jsp"/>
+  	 <action path="/main_report" name="comm" type="com.tk20.jtlresults.TestServlet" input="/start.jsp" scope="session">
+  	 <forward name="success" path="/final-report.jsp"/>
+  	 </action> 
+		 	   
+ 	<action path="/detailed_report" name="comm"  type="com.tk20.jtlresults.GraphServlet"  input="/final-report.jsp" scope="session"/>
+ 	<action path="/DownloadResults" name="comm"  type="com.tk20.jtlresults.DownloadFile"  input="/final-report.jsp" scope="session"/>
+	<action path="/error" forward="/error.jsp"/>
+  	
+	</action-mappings>
+	
+  	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+	<plug-in className="org.apache.struts.tiles.TilesPlugin" >
+    <set-property property="definitions-config" value="/WEB-INF/tiles.xml" />
+    <set-property property="definitions-parser-validate" value="true" />
+    <set-property property="moduleAware" value="true" />
+  </plug-in>
+</struts-config>
