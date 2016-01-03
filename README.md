@@ -1,4 +1,4 @@
-# jmeter-result-parser
+# Jmeter Result Parser
 View your JMeter Result in more generalised form on a Web page.
 
 ## JMeter Result Parser Plugin
