@@ -24,4 +24,14 @@ Make a web archive(war) file of this project and host it in any Servlet containe
 
 ## Example Output
 
+### Index Page
 ![Screenshot1.JPG](https://github.com/MayankSainiTk20/jmeter-result-parser/blob/master/Screenshot1.JPG)
+
+
+### Aggregate Result
+![Screenshot2.JPG](https://github.com/MayankSainiTk20/jmeter-result-parser/blob/master/Screenshot2.JPG)
+
+
+### Detailed Step Report
+![Screenshot3.JPG](https://github.com/MayankSainiTk20/jmeter-result-parser/blob/master/Screenshot3.JPG)
+
