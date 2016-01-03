@@ -26,18 +26,16 @@ public class DownloadFile extends Action {
 	 public ActionForward execute( ActionMapping map, ActionForm form, HttpServletRequest request, HttpServletResponse response )
 		throws ServletException, IOException{
 		 String filename=(String)request.getSession().getAttribute("filename");
+		 filename=filename.replace(".jtl", "");
 		 ByteArrayOutputStream byos=new ByteArrayOutputStream();
 		 OutputStream outStream = null;
 		 XSSFWorkbook wb=new XSSFWorkbook();
 		 try{
-		 
-		 String requesturl="http://localhost:8080/Open_Source_JMeter_Parser/main_report.do";
-		 URL url=new URL(requesturl);
-		 
-		 @SuppressWarnings("resource")
-		
+		 String requesturl=request.getRequestURL().toString();
+		 requesturl=requesturl.replace( requesturl.split("/")[requesturl.split("/").length-1], "");
+		 requesturl=requesturl+"main_report.do";
 		 XSSFSheet sheet=wb.createSheet("Aggregate Results");
-		 Document doc=Jsoup.parse(url, 300000);
+		 Document doc=Jsoup.connect(requesturl).cookie("JSESSIONID", request.getSession().getId()).timeout(30000).post();
 		 int rowCount=0;
 		 Elements table=doc.select("table[id=report]");
 		 
