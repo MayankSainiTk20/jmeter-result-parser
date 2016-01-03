@@ -8,7 +8,7 @@ and display the aggreagte result it in an HTML table.Along with this, the plugin
 
 ## Usage
 
-Can be used in combination with the Jenkins or any other Web Tool which can initiate the load test from Web UI.
+Store your load test results on a web server and view your load test results in a Web Browser
 
 ## Features
 
