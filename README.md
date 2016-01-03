@@ -21,3 +21,7 @@ Shows the detailed result of each and every sample in tabular format along with 
 ## How to Use this
 
 Make a web archive(war) file of this project and host it in any Servlet container and access the ur of your project.If you are hosting it for your web project make sure you are providing the file name as parameter from your index page.
+
+## Example Output
+
+![Screenshot1.JPG](https://github.com/MayankSainiTk20/jmeter-result-parser/blob/master/Screenshot1.JPG)
