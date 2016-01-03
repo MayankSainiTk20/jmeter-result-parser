@@ -44,26 +44,33 @@ public class TestServlet extends Action {
         throws ServletException, IOException{
     	 
 	      FileUploadForm obj=(FileUploadForm) form;
-	      String success=obj.getSuccessfull();
-	      String fileName=null;
+	      String success=null;
+	      String fileName=(String) request.getSession().getAttribute("filename");
 	      FormFile dataFile=null;
 	      try{
-	       dataFile = obj.getUploadfile();
-	       fileName = dataFile.getFileName();
-	      }
-	      catch(Exception ex)
+	          
+	      if(fileName==null)
 	      {
-	    	  return map.findForward("error");
-	      }
-	      if(request.getSession().getAttribute("filename")==null)
-	      {
+	    	  dataFile = obj.getUploadfile();
+		      fileName = dataFile.getFileName();
+		      success=obj.getSuccessfull();
+		      storeFile(dataFile,fileName);
+		      request.getSession().setMaxInactiveInterval(200);
 	    	  request.getSession().setAttribute("filename", fileName);
+	    	  request.getSession().setAttribute("success", success);
 	      }
 	      else
 	      {
-	       fileName=(String) request.getSession().getAttribute("filename");
+	    	    fileName=(String) request.getSession().getAttribute("filename");
+	    	    success=(String) request.getSession().getAttribute("success");
 	      }
-	      storeFile(dataFile,fileName);
+	      }
+	      catch(Exception ex)
+	      {
+	    	  ex.printStackTrace();
+	    	  return map.findForward("error");
+	      }
+	      
 	       PerformanceReport report = new PerformanceReport();
 	       BufferedReader reader = new BufferedReader(new FileReader(System.getProperty("user.dir")+"/"+ fileName));
 	         try{
@@ -94,7 +101,7 @@ public class TestServlet extends Action {
    	      
    	      		 request.getSession().setAttribute("transchartref", transactionChart);
         	 	 request.getSession().setAttribute("reportref", report);
-        	 	return map.findForward("success");
+        	 	return map.findForward("main_report");
 	       
 	         
         }
@@ -102,13 +109,18 @@ public class TestServlet extends Action {
 	
 	
 	private void storeFile(FormFile dataFile,String fileName) throws FileNotFoundException, IOException {
+		try{
 		int  fileSize = dataFile.getFileSize();
         byte[] fileData = dataFile.getFileData();
 		FileOutputStream fileOut = new FileOutputStream(System.getProperty("user.dir")+"/"+ fileName);
         fileOut.write(fileData, 0, fileSize);
         fileOut.flush();
          fileOut.close();
-		
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+				
 	}
 
 
@@ -154,6 +166,7 @@ public class TestServlet extends Action {
 		    return sample;
 	}
 			catch(ArrayIndexOutOfBoundsException ex){
+				ex.printStackTrace();
 				return null;
 			}
 			
